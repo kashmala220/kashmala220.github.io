@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashmala Khan - Portfolio</title>
+    <meta name="description" content="Portfolio of Kashmala Khan - Student, Computer Science Enthusiast, and lifelong learner">
+    
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #ecf0f1;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        header .location {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Container */
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Section Styles */
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .skills h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-card {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .skill-card:hover {
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        /* About Page */
+        .about-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .about-section h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .about-section ul {
+            list-style-position: inside;
+            margin-top: 10px;
+        }
+
+        .about-section li {
+            margin: 8px 0;
+            padding: 5px 0;
+        }
+
+        /* Projects Page */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .skill-tag {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Page */
+        .contact-container {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .contact-container p {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        form input, 
+        form textarea {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus, 
+        form textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        form button {
+            background: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        form button:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero, .skills, .about-section, .project-card, .contact-container {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div>
+                <h1>Kashmala Khan</h1>
+                <p class="location">📍 Shahi Bala, Pakistan</p>
+            </div>
+            <nav>
+                <a onclick="showSection('home')">Home</a>
+                <a onclick="showSection('about')">About</a>
+                <a onclick="showSection('projects')">Projects</a>
+                <a onclick="showSection('contact')">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Welcome to My Portfolio</h1>
+                <p>Hi, I'm <strong>Kashmala Khan</strong>, a passionate student and aspiring computer scientist specializing in AI, Machine Learning, and Data Science. I love building efficient solutions and mastering exam strategies.</p>
+                <button class="btn" onclick="showSection('about')">Learn More About Me</button>
+                <button class="btn" onclick="showSection('projects')">View My Projects</button>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="skills">
+                <h2>My Areas of Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Mathematics</h3>
+                        <p>Derivatives, Chain Rule, Integration by Parts, Trigonometric Integration</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Artificial Intelligence</h3>
+                        <p>Knowledge Representation, Propositional & Predicate Logic, Expert Systems</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Machine Learning</h3>
+                        <p>KNN, Decision Trees, Naive Bayes, Data Preprocessing, Visualization</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Data Science</h3>
+                        <p>Kaggle Datasets, Outlier Detection, Heatmaps, Google Colab</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Islamiyat</h3>
+                        <p>Tauheed, Istilahat-e-Ashariya, Academic Writing</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h1 class="page-title">About Me</h1>
+            
+            <!-- Academic Background -->
+            <section class="about-section">
+                <h2>🎓 Academic Background</h2>
+                <p>Kashmala Khan is currently a student preparing for exams at the intermediate or undergraduate level. She is pursuing a Computer Science-related program and is actively balancing multiple subjects including Mathematics, AI, Machine Learning, and Islamiyat.</p>
+                <p>She is currently in an active semester with multiple assignments and is possibly in midterm or final exam preparation phase.</p>
+            </section>
+
+            <!-- Subjects Studied -->
+            <section class="about-section">
+                <h2>📚 Subjects of Expertise</h2>
+                <ul>
+                    <li><strong>Mathematics:</strong> Derivatives (definition, interpretation, slope of tangent line), Chain Rule, Integration by Parts (ILATE rule), Trigonometric integration (e.g., ∫x⁵sinx dx), MCQs and shortcut methods</li>
+                    <li><strong>Artificial Intelligence / Computer Science:</strong> Searching vs Knowledge Representation, Propositional Logic vs Predicate Logic, Expert System components (Knowledge Base, Inference Engine, UI)</li>
+                    <li><strong>Machine Learning / Data Science:</strong> Working with Kaggle Diabetes dataset, Google Colab usage, Outlier detection and removal, KNN implementation, KNN error rate vs K graph, Decision Tree visualization, Naive Bayes, Heatmaps for disease datasets, Handling null values, Data preprocessing</li>
+                    <li><strong>Islamiyat:</strong> Tauheed definition and types, Istilahat-e-Ashariya, Long structured assignment writing (5-page format), Register-style writing</li>
+                </ul>
+            </section>
+
+            <!-- Learning Style -->
+            <section class="about-section">
+                <h2>🧠 Learning Style & Preferences</h2>
+                <h3>Strong Preferences:</h3>
+                <ul>
+                    <li>Prefers very simple and easy explanations</li>
+                    <li>Likes short and concise answers</li>
+                    <li>Wants organized and structured answers</li>
+                    <li>Focuses on MCQ-based exam preparation</li>
+                    <li>Interested in shortcut techniques</li>
+                    <li>Prefers direct code over lengthy theory</li>
+                </ul>
+                <h3>Study Behavior:</h3>
+                <ul>
+                    <li>Sometimes studies while tired</li>
+                    <li>Often under syllabus pressure</li>
+                    <li>Balances multiple subjects at once</li>
+                    <li>Values efficient study methods</li>
+                </ul>
+            </section>
+
+            <!-- Technical Skills -->
+            <section class="about-section">
+                <h2>💻 Technical Comfort Level</h2>
+                <ul>
+                    <li>Can use Google Colab and mount Google Drive</li>
+                    <li>Uploads datasets and implements ML models with guidance</li>
+                    <li>Understands basic Python programming</li>
+                    <li>Reads error messages and requests visualization improvements</li>
+                    <li>Sometimes needs step-by-step clarity</li>
+                    <li>Prefers minimal extra output</li>
+                </ul>
+            </section>
+
+            <!-- Personality -->
+            <section class="about-section">
+                <h2>🎯 Personality & Strengths</h2>
+                <ul>
+                    <li><strong>Goal-oriented:</strong> Focused on achieving academic success</li>
+                    <li><strong>Competitive:</strong> Mentions comparing code with friends</li>
+                    <li><strong>Perfection-oriented:</strong> Pays attention to presentation and formatting</li>
+                    <li><strong>Analytical thinking:</strong> Strong problem-solving skills in ML models</li>
+                    <li><strong>Conceptual learning:</strong> Excels in logic and AI theory</li>
+                    <li><strong>Practical coding ability:</strong> Can implement code with guidance</li>
+                    <li><strong>Multi-subject adaptability:</strong> Balances technical and non-technical subjects</li>
+                </ul>
+            </section>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h1 class="page-title">My Projects</h1>
+            <p class="page-subtitle">A showcase of my academic work and hands-on projects</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Mathematics MCQ Preparation</h3>
+                    <p>A project focused on creating a comprehensive set of multiple-choice questions (MCQs) for mathematics topics, including derivatives, integration, and trigonometric functions.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Mathematics</span>
+                        <span class="skill-tag">MCQ Design</span>
+                        <span class="skill-tag">Exam Prep</span>
+                    </div>
+                    <a href="https://github.com/kashmala-khan/math-mcq-prep" target="_blank" class="project-link">View Project →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>AI Knowledge Representation</h3>
+                    <p>An exploration of knowledge representation techniques in artificial intelligence, including propositional and predicate logic, and the components of expert systems.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Artificial Intelligence</span>
+                        <span class="skill-tag">Logic</span>
+                        <span class="skill-tag">Expert Systems</span>
+                    </div>
+                    <a href="https://github.com/kashmala-khan/ai-knowledge-representation" target="_blank" class="project-link">View Project →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Kaggle Diabetes Dataset Analysis</h3>
+                    <p>A data science project analyzing the Kaggle Diabetes dataset, focusing on outlier detection, KNN implementation, and decision tree visualization.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Data Science</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Visualization</span>
+                    </div>
+                    <a href="https://github.com/kashmala-khan/diabetes-dataset-analysis" target="_blank" class="project-link">View Project →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Islamiyat Assignment on Tauheed</h3>
+                    <p>A structured assignment exploring the concept of Tauheed in Islam, including definitions and types, formatted according to academic standards.</p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Islamiyat</span>
+                        <span class="skill-tag">Research</span>
+                        <span class="skill-tag">Academic Writing</span>
+                    </div>
+                    <a href="https://github.com/kashmala-khan/islamiyat-tauheed-assignment" target="_blank" class="project-link">View Project →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-container">
+                <h1>Contact Me</h1>
+                <p>Have questions or want to collaborate? Feel free to reach out!</p>
+                
+                <form id="contact-form">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kashmala Khan. All Rights Reserved.</p>
+        <p>Built with passion for learning and innovation 🚀</p>
+    </footer>
+
+    <script>
+        // Navigation function
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for reaching out! Your message has been sent.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
